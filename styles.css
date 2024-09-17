@@ -1,0 +1,622 @@
+/* styles.css */
+
+/* Fundo e texto da página */
+body {
+    background-color: #121212; /* Fundo escuro para toda a página */
+    color: #e0e0e0; /* Texto claro */
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para o header e navbar */
+.navbar {
+    padding: 10px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+}
+
+.nav-link {
+    font-size: 16px;
+}
+
+.navbar-toggler {
+    border: none;
+    background-color: #25D366; /* Cor do WhatsApp para o botão de menu */
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="currentColor" stroke-width="2" d="M5 7h20M5 15h20M5 23h20" stroke-linecap="round" stroke-linejoin="round"/%3E%3C/svg%3E');
+}
+
+
+/* Section Hero */
+#hero {
+    height: 400px;
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+    padding: 5rem 0;
+     /* Cor de fundo escura */
+}
+
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-button {
+    background-color: #007bff; /* Azul para o botão */
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Campo Harmônico */
+.enhanced-section {
+    background-color: #1f1f1f; /* Escuro para a seção */
+    padding: 3rem 0;
+    color: #e0e0e0;
+}
+
+.input-area select,
+.input-area button {
+    background-color: #333; /* Fundo escuro para inputs e botões */
+    color: #e0e0e0; /* Texto claro */
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+}
+
+.input-area select {
+    width: 100%;
+}
+
+/* Braço de guitarra */
+.guitar-neck {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+.guitar-neck-display {
+    width: 100%;
+    height: 150px;
+    background: url('./images/guitar-neck.jpg') no-repeat center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 14px;
+}
+
+.result-card li{
+    list-style: none;
+}
+
+.result {
+    background-color: #333; /* Cor de fundo suave para a seção */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.result-card {
+    background-color: #444; /* Cor branca para os cards */
+    border-radius: 10px; /* Bordas arredondadas para os cards */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para os cards */
+    padding-bottom: 15px;
+}
+
+h3 {
+    margin-bottom: 1rem; /* Espaçamento abaixo do título */
+}
+
+.text-primary {
+    color: #007bff; /* Cor primária para os títulos */
+}
+
+.text-center {
+    text-align: center; /* Centraliza o texto */
+}
+
+
+.fret {
+    position: absolute;
+    background-color: #000;
+    color: #fff;
+    border-radius: 3px;
+    padding: 5px;
+}
+.fret:nth-child(1) { top: 20%; left: 5%; }
+.fret:nth-child(2) { top: 20%; left: 25%; }
+.fret:nth-child(3) { top: 20%; left: 45%; }
+.fret:nth-child(4) { top: 20%; left: 65%; }
+.fret:nth-child(5) { top: 20%; left: 85%; }
+.fret:nth-child(6) { top: 50%; left: 5%; }
+.fret:nth-child(7) { top: 50%; left: 25%; }
+.fret:nth-child(8) { top: 50%; left: 45%; }
+.fret:nth-child(9) { top: 50%; left: 65%; }
+.fret:nth-child(10) { top: 50%; left: 85%; }
+.fret:nth-child(11) { top: 80%; left: 5%; }
+.fret:nth-child(12) { top: 80%; left: 25%; }
+.fret:nth-child(13) { top: 80%; left: 45%; }
+.fret:nth-child(14) { top: 80%; left: 65%; }
+.fret:nth-child(15) { top: 80%; left: 85%; }
+
+
+/* Recursos */
+#resources {
+    border-radius: 0px; /* Bordas arredondadas para a seção */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.card {
+    transition: transform 0.3s, box-shadow 0.3s; /* Animação ao passar o mouse */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra mais intensa ao passar o mouse */
+}
+
+.bg-dark {
+    background-color: #343a40 !important; /* Cor de fundo escura para o card */
+}
+
+.card-title {
+    font-weight: bold; /* Título em negrito */
+}
+
+.card-text {
+    margin-bottom: 1rem; /* Espaço abaixo do texto */
+}
+.card {
+    transition: transform 0.3s, box-shadow 0.3s; /* Efeito de animação */
+    border-radius: 0px; /* Bordas arredondadas */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra mais intensa ao passar o mouse */
+}
+
+.card-body {
+    background-color: #333; /* Cor de fundo branca para o corpo do card */
+    
+}
+
+.card-title {
+    font-size: 1.25rem; /* Tamanho do título */
+    font-weight: bold; /* Negrito para o título */
+}
+
+.card-text {
+    font-size: 0.9rem; /* Tamanho do texto */
+    color: #6c757d; /* Cor do texto */
+}
+
+
+/* Doações */
+#donations {
+    background-color: #1f1f1f; /* Escuro para a seção */
+    padding: 3rem 0;
+    color: #e0e0e0;
+}
+
+.pix-code {
+    width: 50%;
+    background-color: #333; /* Fundo escuro para o código PIX */
+    border-radius: 0.3rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.pix-text {
+    word-break: break-all;
+}
+
+#copy-btn {
+    background-color: #007bff; /* Azul para o botão */
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+#copy-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Contato */
+#contact {
+    background-color: #1f1f1f; /* Escuro para a seção */
+    padding: 3rem 0;
+    color: #e0e0e0;
+}
+.contact-info{
+    background-color: #333;
+    border-radius: 0.3rem;
+    padding: 20px;
+}
+
+.contact-info p {
+    margin: 0.5rem 0;
+}
+
+/* Estilos para o botão de WhatsApp */
+
+/* Estilos para o modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1001; /* Coloca o modal acima dos outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Cor de fundo com opacidade */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para o botão do WhatsApp */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px; /* Distância da base da página */
+    right: 20px; /* Distância da borda direita da página */
+    z-index: 1000; /* Coloca o botão acima dos outros elementos */
+    cursor: pointer;
+    border: none;
+}
+
+.whatsapp-button i {
+    margin: 0;
+}
+
+
+.whatsapp-button img{
+    width: 45px;
+}
+
+.whatsapp-modal-body {
+    text-align: center;
+}
+
+.whatsapp-modal-body h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.whatsapp-modal-body p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn-primary {
+    background-color: #25D366; /* Cor padrão do WhatsApp */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #128C7E;
+}
+
+.btn-secondary {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #ddd;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*Fim Modal Whatsapp*/
+
+/* Estilos para o botão "Voltar ao Topo" */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-to-top img{
+    width: 45px;
+}
+
+/* Estilos para ícones */
+.fab, .fas {
+    margin: 0;
+    line-height: 1;
+}
+
+/* Ajuste para a fonte dos ícones */
+.fab, .fas {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; /* Para ícones sólidos */
+}
+
+
+/* Footer */
+footer {
+    background-color: #1f1f1f; /* Escuro para o footer */
+    color: #e0e0e0;
+}
+
+footer a {
+    padding: 6px;
+    color: #007bff; /* Azul para os links do footer */
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Modal */
+.modal-content {
+    background-color: #333; /* Escuro para o conteúdo do modal */
+    color: #e0e0e0;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+/*Section dinamica com video*/
+#dynamic-section {
+    display: none; /* Inicialmente oculto */
+    background-color: #f8f9fa; /* Cor de fundo suave */
+    border-radius: 0px; /* Bordas arredondadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+#dynamic-title {
+    margin-bottom: 1rem;
+}
+
+#dynamic-content {
+    margin-bottom: 2rem; /* Mais espaço abaixo do texto */
+}
+
+#dynamic-image {
+    max-height: 400px; /* Limita a altura da imagem */
+    object-fit: cover; /* Mantém a proporção da imagem */
+}
+
+.btn-success {
+    background-color: #28a745; /* Cor verde */
+    border: none; /* Remove a borda */
+}
+
+.btn-outline-secondary {
+    color: #6c757d; /* Cor do texto */
+    border-color: #6c757d; /* Cor da borda */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #dynamic-title {
+        font-size: 1.5rem; /* Ajuste do tamanho do título em telas menores */
+    }
+
+    .lead {
+        font-size: 1rem; /* Ajuste do tamanho do texto em telas menores */
+    }
+
+    .btn {
+        width: 100%; /* Botões ocupam toda a largura em telas pequenas */
+        margin-top: 0.5rem; /* Espaço entre botões */
+    }
+
+    #dynamic-image {
+        max-height: 300px; /* Reduz a altura da imagem em telas menores */
+    }
+}
+
+/*Section dinamica com video*/
+
+/* Modal Cifras*/
+.modal-dialog {
+    max-width: 80%;
+    margin: 1.75rem auto;
+}
+
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    border-bottom: none;
+    padding: 1.5rem;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.search-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-area input {
+    width: calc(100% - 1rem);
+    margin-right: 1rem;
+}
+
+.file-list {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.file-preview {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.file-content {
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.btn-primary {
+    margin: 0;
+    padding: auto;
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.close {
+    font-size: 1.5rem;
+}
+
+/*teste*/
+.modal {
+    display: none; /* Ocultar o modal por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo semi-transparente */
+}
+
+/* Atualização no styles.css */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Centralizar o modal */
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 800px; /* Largura máxima do modal */
+    max-height: 80%; /* Altura máxima do modal */
+    overflow-y: auto; /* Permitir rolagem vertical */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ao redor do modal */
+}
+
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+}
+
+#search-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#file-list {
+    list-style: none;
+    padding: 0;
+}
+
+#file-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#file-list li a {
+    text-decoration: none;
+    color: #007bff;
+    display: block;
+}
+
+#file-list li a:hover {
+    text-decoration: underline;
+}
+
+#file-content {
+    white-space: pre-wrap; /* Mantém a formatação do texto */
+    overflow: auto; /* Permite rolar o conteúdo se necessário */
+}
+
+#download-btn {
+    margin-top: 10px;
+}
