@@ -462,7 +462,7 @@ footer a:hover {
     }
 
     .btn {
-        width: 100%; /* Botões ocupam toda a largura em telas pequenas */
+        width: 60%; /* Botões ocupam toda a largura em telas pequenas */
         margin-top: 0.5rem; /* Espaço entre botões */
     }
 
