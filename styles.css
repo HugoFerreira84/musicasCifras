@@ -216,7 +216,7 @@ h3 {
 
 /* Doações */
 .donation-section {
-    width:90%
+    width:100%
     background-color: #333;
     border-radius: 0px;
     padding: 20px;
@@ -228,6 +228,7 @@ h3 {
 }
 
 .pix-code, .donation-info {
+    width:100%
     background-color: white;
     border-radius: 10px;
     margin-right: 15px;
