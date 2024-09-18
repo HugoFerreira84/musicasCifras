@@ -214,37 +214,42 @@ h3 {
     color: #6c757d; /* Cor do texto */
 }
 
-
 /* Doações */
-#donations {
-    background-color: #1f1f1f; /* Escuro para a seção */
-    padding: 3rem 0;
-    color: #e0e0e0;
+.donation-section {
+    background-color: #333;
+    border-radius: 0px;
+    padding: 20px;
+    transition: transform 0.3s ease;
 }
 
-.pix-code {
-    width: 50%;
-    background-color: #333; /* Fundo escuro para o código PIX */
-    border-radius: 0.3rem;
-    padding: 1rem;
-    text-align: center;
+.donation-section:hover {
+    transform: scale(1.02);
 }
 
-.pix-text {
-    word-break: break-all;
+.pix-code, .donation-info {
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 15px;
+    transition: box-shadow 0.3s ease;
 }
 
-#copy-btn {
-    background-color: #007bff; /* Azul para o botão */
-    color: #ffffff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.3rem;
-    cursor: pointer;
+.pix-code:hover, .donation-info:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-#copy-btn:hover {
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
     background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.alert {
+    margin-top: 20px;
 }
 
 /* Contato */
