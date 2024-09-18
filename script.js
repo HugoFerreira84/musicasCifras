@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var openModalButton = document.querySelector('[data-bs-toggle="modal"]');
 
   // Seleciona o modal
-  var contactModal = new bootstrap.Modal(document.getElementById('contactModal'));
+  //var contactModal = new bootstrap.Modal(document.getElementById('contactModal'));
 
   // Adiciona um evento de clique ao botão para abrir o modal
   openModalButton.addEventListener('click', function () {
