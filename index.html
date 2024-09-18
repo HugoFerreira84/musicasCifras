@@ -18,20 +18,16 @@
     <header>
         <!-- Navbar do Bootstrap -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <h3 class="navbar-brand">Aprendizado Musical</h3>
+            <h3 class="navbar-brand">Aprendizado Musicas Grátis</h3>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#selector">Campo Harmônico</a>
                     </li>
-                    <!--
-                    <li class="nav-item">
-                        <a class="nav-link" href="#resources">Recursos</a>
-                    </li>-->
                     <li class="nav-item">
                         <a class="nav-link" href="#donations">Doações</a>
                     </li>
@@ -41,25 +37,33 @@
                     <li class="nav-item">
                         <!-- Botão para abrir o modal de busca -->
                         <button class="btn btn-success p-1 m-0" id="open-modal-btn">Buscar cifras</button>
-
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
 
+
     <!-- Section Hero com Vídeo de Fundo -->
-    <section id="hero" class="hero-section text-center text-white">
+    <section id="hero" class="hero-section text-center text-white p-0">
         <video autoplay muted loop id="bg-video">
             <source src="./images/videos/video.mp4" type="video/mp4">
             Seu navegador não suporta o vídeo.
         </video>
         <div class="overlay"></div>
-        <div class="hero-content">
-            <h2>Descubra a Magia da Música</h2>
-            <p>Aprenda violão e guitarra com recursos interativos.</p>
-            <a href="#selector" class="btn btn-primary">Explorar Campos Harmônicos</a>
+
+
+        <div class="hero-content-back">
+            <div class="hero-content">
+                <div>
+                    <h2>Descubra a Magia da Música</h2>
+                    <p>Aprenda violão e guitarra com recursos interativos.</p>
+                    <a href="#selector" class="btn btn-primary">Explorar Campos Harmônicos</a>
+                </div>
+            </div>
         </div>
+
+
     </section>
 
     <main>
@@ -68,10 +72,10 @@
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="input-area" style="width: 70%;">
-                        <h2 class="text-center text-muted">Campo Harmônico & Escala Pentatônica</h2>
+                        <h2 class="text-center text-muted mb-3">Campo Harmônico</h2>
                         <!--<label for="note">Escolha uma nota:</label>-->
                         <div class="row d-flex justify-content-center align-items-center p-0">
-                            <select id="note" class="form-control col-lg-4 p-0 bg-dark">
+                            <select id="note" class="form-control col-md-4 col-lg-4 p-0 bg-dark">
                                 <option value="" selected>Selecione uma nota</option>
                                 <option value="C">Dó</option>
                                 <option value="C#">Dó♯</option>
@@ -93,25 +97,27 @@
                     </div>
                 </div>
 
-                <div class="result p-5" id="result-section" style="display: none; margin-top: 50px;">
+                <div class="result col-sm-12 p-5" id="result-section" style="display: none; margin-top: 50px;">
                     <!--Progrssões hamônicas-->
                     <div class="output-area text-center">
-                        <h3 class="mb-4">Progressões Harmônicas</h3>
+                        <h3 class="mb-4">Progressões</h3>
                         <div id="chord-progressions" class="result-card border rounded shadow p-4 bg-dark"></div>
                     </div>
-                
+
                     <div class="output-area text-center mt-5">
-                        <h3 class="mb-4">Escalas Pentatônicas</h3>
+                        <h3 class="text-center mb-4">Escala</h3>
                         <div id="pentatonic-scales" class="result-card border rounded shadow p-4 bg-dark"></div>
+                    </div>
+
+                    <!-- Braço de guitarra -->
+                    <div class="guitar-neck col-sm-12">
+                        <h3 class="text-center">Intervalos</h3>
+                        <div id="guitar-neck" class="guitar-neck-display"></div>
+                        <caption>Apenas ilustrativo.</caption>
                     </div>
                 </div>
 
-                <!-- Braço de guitarra -->
-                <div class="guitar-neck mt-4">
-                    <h3>Intervalos da Escala no Braço da Guitarra</h3>
-                    <div id="guitar-neck" class="guitar-neck-display"></div>
-                    <caption>Apenas ilustrativo.</caption>
-                </div>
+
             </div>
         </section>
 
@@ -159,8 +165,6 @@
             </div>
         </section>
         -->
-        
-
         <!-- Seção Dinâmica -->
         <section class="bg-dark" id="dynamic-section" style="display: none;">
             <div class="container py-5">
@@ -217,7 +221,7 @@
                         <button id="copy-btn" class="btn btn-primary">Copiar</button>
                     </div>
                 </div>
-                
+
                 <div class="row d-flex justify-content-center">
                     <div id="alert-box" class="alert alert-success bg-danger text-white text-center d-none" role="alert"
                         style="width: 30%;">
@@ -226,7 +230,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Seção de Contato -->
         <section id="contact" class="py-5">
             <div class="container">
@@ -360,7 +364,7 @@
                         <a href="#" class="text-white me-3">
                             <i class="fab fa-instagram"></i> Instagram
                         </a>
-                        <a href="#"class="text-white">
+                        <a href="#" class="text-white">
                             <i class="fab fa-twitter"></i> Twitter
                         </a>
                     </div>
