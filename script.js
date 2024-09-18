@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Verifica se o DOM está completamente carregado
+/*
 document.addEventListener('DOMContentLoaded', function () {
   // Seleciona o botão que abre o modal
   var openModalButton = document.querySelector('[data-bs-toggle="modal"]');
@@ -119,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
     contactModal.show();
   });
 });
+*/
 
 // Alert do Pix
 document.addEventListener('DOMContentLoaded', function () {
