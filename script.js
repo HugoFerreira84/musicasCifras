@@ -106,6 +106,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+//Seleciona o modal a ser aberto
+// Função para abrir o modal com base no botão clicado
+document.addEventListener('DOMContentLoaded', function () {
+    // Seleciona todos os botões que abrem modais
+    const modalButtons = document.querySelectorAll('.modal-btn');
+
+    // Adiciona um evento de clique a cada botão
+    modalButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            // Obtém o alvo do modal a partir do atributo data-target
+            const modalTarget = button.getAttribute('data-target');
+            
+            // Usa o seletor jQuery do Bootstrap para abrir o modal
+            $(modalTarget).modal('show');
+        });
+    });
+});
+
+
 // Verifica se o DOM está completamente carregado
 /*
 document.addEventListener('DOMContentLoaded', function () {
