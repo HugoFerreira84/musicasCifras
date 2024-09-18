@@ -40,6 +40,10 @@ body {
      /* Cor de fundo escura */
 }
 
+#hero img{
+    height:400px
+}
+
 #bg-video {
     position: absolute;
     top: 0;
