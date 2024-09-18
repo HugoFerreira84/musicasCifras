@@ -34,9 +34,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contato</a>
                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="afinador.html">Afinador</a>
-                    </li>
+                   <!-- Botão para abrir o modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tunerModal">
+                      Abrir Afinador de Violão
+                    </button>
                     <li class="nav-item">
                         <!-- Botão para abrir o modal de busca -->
                         <button class="btn btn-success p-1 m-0" id="open-modal-btn">Buscar cifras</button>
@@ -123,6 +124,39 @@
 
             </div>
         </section>
+
+        <!-- Modal do Afinador -->
+        <div class="modal fade" id="tunerModal" tabindex="-1" aria-labelledby="tunerModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="tunerModalLabel">Afinador de Violão</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <!-- Status do microfone -->
+                <div id="status" class="alert alert-info" role="alert">
+                  Aguardando o microfone...
+                </div>
+        
+                <!-- Exibição da nota detectada -->
+                <h3 class="text-center">Nota Detectada:</h3>
+                <div class="text-center">
+                  <h2 id="note-detected" class="display-4 text-primary">Nenhuma nota</h2>
+                </div>
+        
+                <!-- Botões de controle -->
+                <div class="text-center mt-4">
+                  <button id="start-btn" class="btn btn-success">Iniciar Afinador</button>
+                  <button id="stop-btn" class="btn btn-danger">Parar Afinador</button>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- Seção de Recursos (Blog de Notícias) -->
         <!--
