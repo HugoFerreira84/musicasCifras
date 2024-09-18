@@ -217,9 +217,14 @@ h3 {
 /* Doações */
 .donation-section {
     background-color: #333;
+    color:#fff;
     border-radius: 0px;
     padding: 20px;
     transition: transform 0.3s ease;
+}
+
+.donation-section h2{
+    color:#007bff;
 }
 
 .donation-section:hover {
