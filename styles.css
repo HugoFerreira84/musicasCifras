@@ -32,16 +32,12 @@ body {
 
 /* Section Hero */
 #hero {
-    height: 600px;
+    height: 400px;
     position: relative;
     color: #ffffff;
     text-align: center;
     padding: 5rem 0;
      /* Cor de fundo escura */
-}
-
-#hero img{
-    height: 600px;
 }
 
 #bg-video {
