@@ -2,7 +2,8 @@
 
 /* Fundo e texto da página */
 body {
-    background-color: #121212;
+    background: url('./images/back.jpg');
+    background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;
     /* Fundo escuro para toda a página */
     color: #e0e0e0;
     /* Texto claro */
@@ -12,6 +13,7 @@ body {
 /* Estilos para o header e navbar */
 .navbar {
     padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .navbar-brand {
@@ -32,7 +34,6 @@ body {
     background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="currentColor" stroke-width="2" d="M5 7h20M5 15h20M5 23h20" stroke-linecap="round" stroke-linejoin="round"/%3E%3C/svg%3E');
 }
 
-
 /* Section Hero */
 #hero {
     height: 400px;
@@ -48,7 +49,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 60%;
     object-fit: cover;
     z-index: -1;
 }
@@ -57,8 +58,8 @@ body {
     position: relative;
     z-index: 1;
     padding-top: 120px;
-    background: rgba(0, 0, 0, 0.2);
-    padding: 150px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 140px;
     border-radius: 6px;
 }
 
@@ -79,7 +80,6 @@ body {
 
 /* Campo Harmônico */
 .enhanced-section {
-    background-color: #1f1f1f;
     /* Escuro para a seção */
     padding: 3rem 0;
     color: #e0e0e0;
@@ -98,6 +98,11 @@ body {
 
 .input-area select {
     width: 100%;
+}
+
+/*Section selector*/
+#selector{
+    background: rgba(0, 0, 0, 0.6);
 }
 
 /* Braço de guitarra */
@@ -242,76 +247,11 @@ h3 {
     left: 85%;
 }
 
-/* Recursos */
-#resources {
-    border-radius: 0px;
-    /* Bordas arredondadas para a seção */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    /* Sombra suave */
-}
-
-.card {
-    transition: transform 0.3s, box-shadow 0.3s;
-    /* Animação ao passar o mouse */
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    /* Efeito de elevação ao passar o mouse */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    /* Sombra mais intensa ao passar o mouse */
-}
-
-.bg-dark {
-    background-color: #343a40 !important;
-    /* Cor de fundo escura para o card */
-}
-
-.card-title {
-    font-weight: bold;
-    /* Título em negrito */
-}
-
-.card-text {
-    margin-bottom: 1rem;
-    /* Espaço abaixo do texto */
-}
-
-.card {
-    transition: transform 0.3s, box-shadow 0.3s;
-    /* Efeito de animação */
-    border-radius: 0px;
-    /* Bordas arredondadas */
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    /* Efeito de elevação ao passar o mouse */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    /* Sombra mais intensa ao passar o mouse */
-}
-
-.card-body {
-    background-color: #333;
-    /* Cor de fundo branca para o corpo do card */
-
-}
-
-.card-title {
-    font-size: 1.25rem;
-    /* Tamanho do título */
-    font-weight: bold;
-    /* Negrito para o título */
-}
-
-.card-text {
-    font-size: 0.9rem;
-    /* Tamanho do texto */
-    color: #6c757d;
-    /* Cor do texto */
-}
-
 /* Doações */
+#section-2{
+    background: rgba(0, 0, 0, 0.7);
+}
+
 .donation-section {
     background-color: #333;
     color: #fff;
@@ -330,7 +270,6 @@ h3 {
 
 .pix-code,
 .donation-info {
-    background-color: #333;
     padding: 15px;
     border-radius: 10px;
     margin-right: 15px;
@@ -359,7 +298,7 @@ h3 {
 
 /* Contato */
 #contact {
-    background-color: #1f1f1f;
+    background: rgba(0, 0, 0, 0.6);
     /* Escuro para a seção */
     padding: 3rem 0;
     color: #e0e0e0;
@@ -394,7 +333,7 @@ h3 {
 }
 
 .modal-content {
-    background-color: #fff;
+    background: rgba(0, 0, 0, 0.7);
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
@@ -421,6 +360,9 @@ h3 {
     margin: 0;
 }
 
+.whatsapp-button img{
+    opacity: 0.7;
+}
 
 .whatsapp-button img {
     width: 45px;
@@ -428,6 +370,7 @@ h3 {
 
 .whatsapp-modal-body {
     text-align: center;
+    
 }
 
 .whatsapp-modal-body h2 {
@@ -491,6 +434,7 @@ h3 {
     left: 20px;
     z-index: 1000;
     transition: background-color 0.3s ease;
+    opacity: 0.6;
 }
 
 .scroll-to-top img {

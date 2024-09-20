@@ -17,7 +17,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="display: flex; justify-content: end;">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="display: flex; justify-content: end;">
             <!--<h3 class="navbar-brand">Cifras Grátis</h3>-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,7 +71,7 @@
         <div class="container">
             <div class="row">
                 <video autoplay muted loop id="bg-video">
-                    <source src="./images/videos/video.mp4" type="video/mp4">
+                    <source src="./images/videos/video-2.mp4" type="video/mp4">
                     Seu navegador não suporta o vídeo.
                 </video>
                 <div class="overlay"></div>
@@ -81,7 +81,7 @@
 
                     <div class="hero-content">
                         <div class="text-center text-white">
-                            <h2 class="">A Magia da Música</h2>
+                            <h2 class="display-4">A Magia da Música</h2>
                             <p>Aprenda violão e guitarra com recursos interativos.</p>
                             <!--<a href="#selector" class="btn btn-primary">Explorar Campos Harmônicos</a>-->
                         </div>
@@ -94,17 +94,17 @@
 
     <main>
         <!-- Seção de Campo Harmônico mais elaborada -->
-        <section id="selector" class="enhanced-section d-flex align-items-center py-5 bg-dark">
+        <section id="selector" class="enhanced-section d-flex align-items-center">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 order-md-2">
-                        <img src="images/2.jpg" class="img-fluid" alt="Imagem Exemplo">
+                    <div class="col-md-6 order-md-2 image-harm">
+                        <img src="images/2.jpg" class="img-fluid rounded" alt="Imagem Exemplo">
                     </div>
                     <div class="col-md-6 d-flex flex-column justify-content-center">
                         <div class="container">
                             <div class="row d-flex justify-content-center">
                                 <div class="input-area" style="width: 70%;">
-                                    <h2 class="text-center text-muted mb-3">Campo Harmônico</h2>
+                                    <h2 class="text-center text-muted mb-3 pt-4">Campo Harmônico</h2>
                                     <!--<label for="note">Escolha uma nota:</label>-->
                                     <div class="row d-flex justify-content-center align-items-center p-0">
                                         <select id="note" class="form-control col-md-6 col-lg-6 p-0 bg-dark border">
@@ -131,15 +131,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 d-flex flex-column justify-content-center bg-dark">
+                <div class="col-md-12 d-flex flex-column justify-content-center">
                     <div class="row">
-                        <div class="result col-sm-12 col-md-12 col-lg-12 p-5" id="result-section"
-                            style="display: none; margin-top: 50px;">
+                        <div class="result col-sm-12 col-md-12 col-lg-12 p-5" id="result-section" style="display: none; margin-top: 50px;">
                             <!--Progrssões hamônicas-->
                             <div class="output-area text-center">
                                 <h3 class="mb-4">Progressões</h3>
-                                <div id="chord-progressions" class="result-card border rounded shadow p-4 bg-dark">
-                                </div>
+                                <div id="chord-progressions" class="result-card border rounded shadow p-4 bg-dark"></div>
                             </div>
 
                             <div class="output-area text-center mt-5">
@@ -170,34 +168,34 @@
                         <a id="download-button" href="#" class="btn btn-lg btn-success">Baixar Arquivo</a>
                         <button id="back-button" class="btn btn-outline-warning">Voltar para os Cards</button>
                     </div>
-                    <div class="col-md-6 text-center">
-                        <img id="dynamic-image" src="" alt="Imagem do Card" class="img-fluid rounded shadow-lg">
+                    <div class="col-md-6 text-center rounded">
+                        <img id="dynamic-image" src="" alt="Imagem do Card" class="img-fluid shadow-lg">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Seção de Doações -->
-        <section id="section-2" class="d-flex align-items-center py-5 bg-secondary">
+        <section id="section-2" class="d-flex align-items-center py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 order-md-2">
-                        <img src="images/2.jpg" class="img-fluid" alt="Imagem Exemplo">
+                    <div class="col-md-6 order-md-2 rounded">
+                        <img src="images/2.jpg" class="img-fluid rounded" alt="Imagem Exemplo">
                     </div>
                     <div class="col-md-6 d-flex flex-column justify-content-center">
                         <div class="container">
                             <div class="row d-flex justify-content-center">
-                                <div class="pix-code text-center mb-4">
+                                <div class="pix-code text-center mb-1">
                                     <img src="./images/icon/pix2.png" alt="Código PIX" class="img-fluid mb-2">
-                                    <p class="pix-text p-0 text-muted">
+                                    <p class="pix-text p-0 text-white">
                                         musicasecifrasgratis@gmail.com
                                     </p>
-                                    <button id="copy-btn" class="btn btn-primary">Copiar</button>
+                                    <button id="copy-btn" class="btn btn-success btn-block text-dark">Copiar</button>
                                 </div>
                             </div>
 
-                            <h2 class="text-center mt-3 mb-2">Apoie Nosso Projeto</h2>
-                            <p class="text-center mb-4">Nosso projeto é dedicado a oferecer recursos musicais gratuitos,
+                            <h2 class="text-center text-white">Apoie Nosso Projeto</h2>
+                            <p class="text-center text-white">Nosso projeto é dedicado a oferecer recursos musicais gratuitos,
                                 considere fazer uma
                                 doação.</p>
 
@@ -214,8 +212,7 @@
         </section>
 
         <!-- Seção de Contato com Layout Horizontal e Imagem de Fundo -->
-        <section id="contact" class="py-5"
-            style="background-image: url('images/guitar-neck1.jpg'); background-size: cover; background-position: center; color: white;">
+        <section id="contact" class="py-5">
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <!-- Coluna de informações de contato -->
@@ -340,7 +337,7 @@
 
     <!-- Modal do WhatsApp -->
     <div id="whatsapp-modal" class="modal">
-        <div class="modal-content bg-dark">
+        <div class="modal-content bg-dark" style="opacity: 0.9;">
             <span class="close text-white">&times;</span>
             <div class="whatsapp-modal-body">
                 <h2>Iniciar Conversa</h2>
@@ -363,7 +360,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <footer class="text-white py-5" style="background: rgba(0, 0, 0, 0.7);">
         <div class="container">
             <div class="row">
                 <!-- Seção de Contato -->
