@@ -90,5 +90,14 @@
       font-size: 1.5rem;
       cursor: pointer;
     }
+
+    .input-area{
+      margin-top: 25px;
+    }
+
+    .pix-code{
+      margin-top: 25px;
+      margin-bottom: -10px;
+    }
   }
   
