@@ -17,14 +17,14 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="display: flex; justify-content: end;">
             <!--<h3 class="navbar-brand">Cifras Grátis</h3>-->
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarNav"
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-        </button>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
+                <ul class="navbar-nav mx-auto p-0" style="display: flex; justify-content: center;">
                     <li class="nav-item">
                         <a class="nav-link" href="#selector">Campo Harmônico</a>
                     </li>
@@ -36,13 +36,221 @@
                     </li>
                     <li class="nav-item">
                         <!-- Botão para abrir o modal de busca -->
-                        <button class="btn btn-outline-primary p-1" id="open-modal-btn" data-modal="search-modal">Buscar
+                        <button class="btn btn-outline-primary p-1 m-0" id="open-modal-btn"
+                            data-modal="search-modal">Buscar
                             cifras</button>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
+
+    <!-- Section Hero com Vídeo de Fundo -->
+    <!--
+    <section id="hero" class="hero-section text-center text-white p-0">
+        <video autoplay muted loop id="bg-video">
+            <source src="./images/videos/video.mp4" type="video/mp4">
+            Seu navegador não suporta o vídeo.
+        </video>
+        <div class="overlay"></div>
+
+
+        <div class="hero-content-back">
+            <div class="hero-content">
+                <div>
+                    <h2>Descubra a Magia da Música</h2>
+                    <p>Aprenda violão e guitarra com recursos interativos.</p>
+                    <!-<a href="#selector" class="btn btn-primary">Explorar Campos Harmônicos</a>-
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- Seções com layout horizontal -->
+    <section id="section-1" class="d-flex align-items-center py-5">
+        <div class="container">
+            <div class="row">
+                <video autoplay muted loop id="bg-video">
+                    <source src="./images/videos/video.mp4" type="video/mp4">
+                    Seu navegador não suporta o vídeo.
+                </video>
+                <div class="overlay"></div>
+
+                <div class="col-md-12 col-lg-12 col-sm-12 flex-column justify-content-center">
+                    <!--<h2 class="mb-4">Título da Seção 1</h2>-->
+
+                    <div class="hero-content">
+                        <div class="text-center text-white">
+                            <h2 class="">A Magia da Música</h2>
+                            <p>Aprenda violão e guitarra com recursos interativos.</p>
+                            <!--<a href="#selector" class="btn btn-primary">Explorar Campos Harmônicos</a>-->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- Seção de Campo Harmônico mais elaborada -->
+        <section id="selector" class="enhanced-section d-flex align-items-center py-5 bg-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 order-md-2">
+                        <img src="images/2.jpg" class="img-fluid" alt="Imagem Exemplo">
+                    </div>
+                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                        <div class="container">
+                            <div class="row d-flex justify-content-center">
+                                <div class="input-area" style="width: 70%;">
+                                    <h2 class="text-center text-muted mb-3">Campo Harmônico</h2>
+                                    <!--<label for="note">Escolha uma nota:</label>-->
+                                    <div class="row d-flex justify-content-center align-items-center p-0">
+                                        <select id="note" class="form-control col-md-6 col-lg-6 p-0 bg-dark border">
+                                            <option value="" selected>Selecione uma nota</option>
+                                            <option value="C">Dó</option>
+                                            <option value="C#">Dó♯</option>
+                                            <option value="D">Ré</option>
+                                            <option value="D#">Ré♯</option>
+                                            <option value="E">Mi</option>
+                                            <option value="F">Fá</option>
+                                            <option value="F#">Fá♯</option>
+                                            <option value="G">Sol</option>
+                                            <option value="G#">Sol♯</option>
+                                            <option value="A">Lá</option>
+                                            <option value="A#">Lá♯</option>
+                                            <option value="B">Si</option>
+                                        </select>
+
+                                        <button id="clear-btn" class="btn btn-secondary">Limpar</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 d-flex flex-column justify-content-center bg-dark">
+                    <div class="row">
+                        <div class="result col-sm-12 col-md-12 col-lg-12 p-5" id="result-section"
+                            style="display: none; margin-top: 50px;">
+                            <!--Progrssões hamônicas-->
+                            <div class="output-area text-center">
+                                <h3 class="mb-4">Progressões</h3>
+                                <div id="chord-progressions" class="result-card border rounded shadow p-4 bg-dark">
+                                </div>
+                            </div>
+
+                            <div class="output-area text-center mt-5">
+                                <h3 class="text-center mb-4">Escala</h3>
+                                <div id="pentatonic-scales" class="result-card border rounded shadow p-4 bg-dark">
+                                </div>
+                            </div>
+
+                            <!-- Braço de guitarra -->
+                            <div class="guitar-neck col-sm-12">
+                                <h3 class="text-center">Intervalos</h3>
+                                <div id="guitar-neck" class="guitar-neck-display"></div>
+                                <caption>Apenas ilustrativo.</caption>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Dinâmica -->
+        <section class="bg-dark" id="dynamic-section" style="display: none;">
+            <div class="container py-5">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2 id="dynamic-title" class="display-4 text-primary mb-4">Título do Card</h2>
+                        <p id="dynamic-content" class="lead text-muted">Conteúdo do card selecionado.</p>
+                        <a id="download-button" href="#" class="btn btn-lg btn-success">Baixar Arquivo</a>
+                        <button id="back-button" class="btn btn-outline-warning">Voltar para os Cards</button>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <img id="dynamic-image" src="" alt="Imagem do Card" class="img-fluid rounded shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Doações -->
+        <section id="section-2" class="d-flex align-items-center py-5 bg-secondary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 order-md-2">
+                        <img src="images/2.jpg" class="img-fluid" alt="Imagem Exemplo">
+                    </div>
+                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                        <div class="container">
+                            <div class="row d-flex justify-content-center">
+                                <div class="pix-code text-center mb-4">
+                                    <img src="./images/icon/pix2.png" alt="Código PIX" class="img-fluid mb-2">
+                                    <p class="pix-text p-0 text-muted">
+                                        musicasecifrasgratis@gmail.com
+                                    </p>
+                                    <button id="copy-btn" class="btn btn-primary">Copiar</button>
+                                </div>
+                            </div>
+
+                            <h2 class="text-center mt-3 mb-2">Apoie Nosso Projeto</h2>
+                            <p class="text-center mb-4">Nosso projeto é dedicado a oferecer recursos musicais gratuitos,
+                                considere fazer uma
+                                doação.</p>
+
+                            <div class="row d-flex justify-content-center">
+                                <div id="alert-box" class="alert alert-success bg-danger text-white text-center d-none"
+                                    role="alert" style="width: 30%;">
+                                    Código PIX copiado com sucesso!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Contato com Layout Horizontal e Imagem de Fundo -->
+        <section id="contact" class="py-5"
+            style="background-image: url('images/guitar-neck1.jpg'); background-size: cover; background-position: center; color: white;">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <!-- Coluna de informações de contato -->
+                    <div class="col-md-6">
+                        <div class="contact-info text-center text-md-start">
+                            <h3>Fale Conosco</h3>
+                            <p>Entre em contato para tirar dúvidas ou dar sugestões.</p>
+                            <p><strong>Email:</strong> musicasecifrasgratis@gmail.com</p>
+                            <p><strong>Telefone:</strong> (11) 99999-9999</p>
+                          
+                        </div>
+                    </div>
+
+                    <!-- Coluna com imagem -->
+                    <div class="col-md-6 d-none d-md-block">
+                        <img src="images/card-1.jpg" class="img-fluid rounded shadow" alt="Entre em Contato">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Botão de WhatsApp -->
+        <a href="#" class="whatsapp-button" id="whatsapp-button">
+            <img src="./images/icon/whatsapp.png" alt="">
+        </a>
+
+        <!-- Botão "Voltar ao Topo" -->
+        <a href="#top" class="scroll-to-top">
+            <img src="./images/icon/botao-de-upload.png" alt="">
+        </a>
+    </main>
+
+    <!-- Fundo escurecido -->
+    <div id="modal-backdrop"></div>
 
     <!-- Modal de Busca Estilizado -->
     <div id="search-modal" class="search-modal">
@@ -88,11 +296,6 @@
         </div>
     </div>
 
-
-    <!-- Fundo escurecido -->
-    <div id="modal-backdrop"></div>
-
-
     <!-- Modal de visualização de música -->
     <div id="music-modal" class="modal" tabindex="-1">
         <div class="modal-dialog">
@@ -113,271 +316,41 @@
         </div>
     </div>
 
-    <!-- Section Hero com Vídeo de Fundo -->
-    <section id="hero" class="hero-section text-center text-white p-0">
-        <video autoplay muted loop id="bg-video">
-            <source src="./images/videos/video.mp4" type="video/mp4">
-            Seu navegador não suporta o vídeo.
-        </video>
-        <div class="overlay"></div>
-
-
-        <div class="hero-content-back">
-            <div class="hero-content">
-                <div>
-                    <h2>Descubra a Magia da Música</h2>
-                    <p>Aprenda violão e guitarra com recursos interativos.</p>
-                    <!--<a href="#selector" class="btn btn-primary">Explorar Campos Harmônicos</a>-->
+    <!-- Modal de Confirmação de Download -->
+    <div class="modal fade" id="downloadModal" tabindex="-1" role="dialog" aria-labelledby="downloadModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="downloadModalLabel">Confirmar Download</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Você está prestes a baixar o arquivo. Deseja continuar?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <a id="confirm-download" href="#" target="_blank" class="btn btn-success">Baixar Arquivo</a>
                 </div>
             </div>
         </div>
+    </div>
 
-
-    </section>
-
-    <main>
-        <!-- Seção de Campo Harmônico mais elaborada -->
-        <section id="selector" class="enhanced-section">
-            <div class="container">
-                <div class="row d-flex justify-content-center">
-                    <div class="input-area" style="width: 70%;">
-                        <h2 class="text-center text-muted mb-3">Campo Harmônico</h2>
-                        <!--<label for="note">Escolha uma nota:</label>-->
-                        <div class="row d-flex justify-content-center align-items-center p-0">
-                            <select id="note" class="form-control col-md-4 col-lg-4 p-0 bg-dark">
-                                <option value="" selected>Selecione uma nota</option>
-                                <option value="C">Dó</option>
-                                <option value="C#">Dó♯</option>
-                                <option value="D">Ré</option>
-                                <option value="D#">Ré♯</option>
-                                <option value="E">Mi</option>
-                                <option value="F">Fá</option>
-                                <option value="F#">Fá♯</option>
-                                <option value="G">Sol</option>
-                                <option value="G#">Sol♯</option>
-                                <option value="A">Lá</option>
-                                <option value="A#">Lá♯</option>
-                                <option value="B">Si</option>
-                            </select>
-
-                            <button id="clear-btn" class="btn btn-secondary">Limpar</button>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="result col-sm-12 p-5" id="result-section" style="display: none; margin-top: 50px;">
-                    <!--Progrssões hamônicas-->
-                    <div class="output-area text-center">
-                        <h3 class="mb-4">Progressões</h3>
-                        <div id="chord-progressions" class="result-card border rounded shadow p-4 bg-dark"></div>
-                    </div>
-
-                    <div class="output-area text-center mt-5">
-                        <h3 class="text-center mb-4">Escala</h3>
-                        <div id="pentatonic-scales" class="result-card border rounded shadow p-4 bg-dark"></div>
-                    </div>
-
-                    <!-- Braço de guitarra -->
-                    <div class="guitar-neck col-sm-12">
-                        <h3 class="text-center">Intervalos</h3>
-                        <div id="guitar-neck" class="guitar-neck-display"></div>
-                        <caption>Apenas ilustrativo.</caption>
-                    </div>
-                </div>
-
-
-            </div>
-        </section>
-
-        <!-- Seção de Recursos (Blog de Notícias) -->
-        <!--
-        <section id="resources" class="py-5 bg-dark">
-            <div class="container">
-                <h2 class="text-center mb-4">Recursos para Violão e Guitarra</h2>
-                <div class="row">
-                    
-                    <div class="col-md-4 mb-4">
-                        <div class="card shadow border-0 rounded">
-                            <img src="./images/2.jpg" class="card-img-top" alt="Notícia 1">
-                            <div class="card-body bg-dark">
-                                <h5 class="card-title">Título da Notícia 1</h5>
-                                <p class="card-text">Descrição curta do artigo ou notícia. Isso deve captar o interesse do leitor.</p>
-                                <a href="#" class="btn btn-primary read-more" data-card-id="1">Leia Mais</a>
-                            </div>
-                        </div>
-                    </div>
-                   
-                    <div class="col-md-4 mb-4">
-                        <div class="card shadow border-0 rounded">
-                            <img src="./images/2.jpg" class="card-img-top" alt="Notícia 2">
-                            <div class="card-body bg-dark">
-                                <h5 class="card-title">Título da Notícia 2</h5>
-                                <p class="card-text">Descrição curta do artigo ou notícia. Isso deve captar o interesse do leitor.</p>
-                                <a href="#" class="btn btn-primary read-more" data-card-id="2">Leia Mais</a>
-                            </div>
-                        </div>
-                    </div>
-            
-                    <div class="col-md-4 mb-4">
-                        <div class="card shadow border-0 rounded">
-                            <img src="./images/2.jpg" class="card-img-top" alt="Notícia 3">
-                            <div class="card-body bg-dark">
-                                <h5 class="card-title">Título da Notícia 3</h5>
-                                <p class="card-text">Descrição curta do artigo ou notícia. Isso deve captar o interesse do leitor.</p>
-                                <a href="#" class="btn btn-primary read-more" data-card-id="3">Leia Mais</a>
-                            </div>
-                        </div>
-                    </div>
-                  
-                </div>
-            </div>
-        </section>
-        -->
-        <!-- Seção Dinâmica -->
-        <section class="bg-dark" id="dynamic-section" style="display: none;">
-            <div class="container py-5">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <h2 id="dynamic-title" class="display-4 text-primary mb-4">Título do Card</h2>
-                        <p id="dynamic-content" class="lead text-muted">Conteúdo do card selecionado.</p>
-                        <a id="download-button" href="#" class="btn btn-lg btn-success">Baixar Arquivo</a>
-                        <button id="back-button" class="btn btn-outline-warning">Voltar para os Cards</button>
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <img id="dynamic-image" src="" alt="Imagem do Card" class="img-fluid rounded shadow-lg">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Modal de Confirmação de Download -->
-        <div class="modal fade" id="downloadModal" tabindex="-1" role="dialog" aria-labelledby="downloadModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content bg-dark">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="downloadModalLabel">Confirmar Download</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Você está prestes a baixar o arquivo. Deseja continuar?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        <a id="confirm-download" href="#" target="_blank" class="btn btn-success">Baixar Arquivo</a>
-                    </div>
-                </div>
+    <!-- Modal do WhatsApp -->
+    <div id="whatsapp-modal" class="modal">
+        <div class="modal-content bg-dark">
+            <span class="close text-white">&times;</span>
+            <div class="whatsapp-modal-body">
+                <h2>Iniciar Conversa</h2>
+                <p>Deseja iniciar uma conversa conosco no WhatsApp?</p>
+                <a href="https://wa.me/000000000" class="btn btn-success" target="_blank">Sim, Iniciar
+                    Conversa</a>
+                <button class="btn btn-danger" id="close-modal">Não, Obrigado</button>
             </div>
         </div>
-
-        <!-- Seção de Doações -->
-        <section id="donations" class="donation-section d-flex justify-content-center py-5">
-            <div class="container">
-                <h2 class="text-center mb-4">Apoie Nosso Projeto</h2>
-                <p class="text-center mb-4">Nosso projeto é dedicado a oferecer recursos musicais gratuitos.</p>
-                <p class="text-center mb-4">Se você deseja nos ajudar a continuar esse trabalho, considere fazer uma
-                    doação.</p>
-                <div class="row d-flex justify-content-center">
-                    <div class="pix-code text-center mb-4">
-                        <img src="./images/icon/pix2.png" alt="Código PIX" class="img-fluid mb-3">
-                        <p>Copie o código PIX abaixo e contribua com qualquer valor:</p>
-                        <p class="pix-text">
-                            musicasecifrasgratis@gmail.com
-                        </p>
-                        <button id="copy-btn" class="btn btn-primary">Copiar</button>
-                    </div>
-                </div>
-
-                <div class="row d-flex justify-content-center">
-                    <div id="alert-box" class="alert alert-success bg-danger text-white text-center d-none" role="alert"
-                        style="width: 30%;">
-                        Código PIX copiado com sucesso!
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção de Contato -->
-        <section id="contact" class="py-5">
-            <div class="container">
-                <!--<h2 class="text-center mb-4">Contato</h2>-->
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-6 mb-4">
-                        <div class="contact-info text-center">
-                            <h3>Fale Conosco</h3>
-                            <p>Entre em contato para tirar dúvidas ou dar sugestões.</p>
-                            <p><strong>Email:</strong> musicasecifrasgratis@gmail.com</p>
-                            <p><strong>Telefone:</strong> (11) 99999-9999</p>
-                            <!-- Botão para abrir o modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#contactModal">
-                                Enviar Mensagem
-                            </button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal de Contato
-            <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content bg-dark">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="contactModalLabel">Envie uma Mensagem</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="#" method="post">
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">Nome:</label>
-                                    <input type="text" id="name" name="name" class="form-control" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email:</label>
-                                    <input type="email" id="email" name="email" class="form-control" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="message" class="form-label">Mensagem:</label>
-                                    <textarea id="message" name="message" class="form-control" rows="4"
-                                        required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-            -->
-            <!-- Botão de WhatsApp -->
-            <a href="#" class="whatsapp-button" id="whatsapp-button">
-                <img src="./images/icon/whatsapp.png" alt="">
-            </a>
-
-            <!-- Modal do WhatsApp -->
-            <div id="whatsapp-modal" class="modal">
-                <div class="modal-content bg-dark">
-                    <span class="close text-white">&times;</span>
-                    <div class="whatsapp-modal-body">
-                        <h2>Iniciar Conversa</h2>
-                        <p>Deseja iniciar uma conversa conosco no WhatsApp?</p>
-                        <a href="https://wa.me/000000000" class="btn btn-success" target="_blank">Sim, Iniciar
-                            Conversa</a>
-                        <button class="btn btn-danger" id="close-modal">Não, Obrigado</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Botão "Voltar ao Topo" -->
-            <a href="#top" class="scroll-to-top">
-                <img src="./images/icon/botao-de-upload.png" alt="">
-            </a>
-    </main>
+    </div>
 
     <!-- Modal de Visualização -->
     <div id="view-modal" class="modal">
@@ -388,8 +361,6 @@
             <a id="download-btn" href="#" download>Baixar Arquivo</a> <!-- Link para download -->
         </div>
     </div>
-
-
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-5">

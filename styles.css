@@ -366,7 +366,7 @@ h3 {
 }
 
 .contact-info {
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 0.3rem;
     padding: 20px;
 }
@@ -986,7 +986,35 @@ footer a:hover {
     }
 }
 
-/**/
+/*Contato*/
+/* Para telas menores, os elementos se alinham verticalmente */
+@media (max-width: 768px) {
+    #contact {
+      background-size: cover;
+      background-position: center;
+    }
+  
+    #contact .contact-info {
+      text-align: center;
+    }
+  
+    #contact img {
+      display: none; /* Esconder a imagem em telas pequenas */
+    }
+  }
+  
+  /* Para telas maiores, o layout permanece horizontal */
+  @media (min-width: 768px) {
+    #contact .contact-info {
+      text-align: left;
+    }
+  
+    #contact img {
+      display: block;
+    }
+  }
+  
+
 @media (max-width: 768px) {
     #contact .container {
         padding: 0 15px; /* Ajuste no padding lateral para telas menores */
