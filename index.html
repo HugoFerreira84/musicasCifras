@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cifras Grátis</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="search_styles.css">
     <link rel="stylesheet" href="">
 
     <!-- Bootstrap CSS -->
@@ -16,9 +17,8 @@
 
 <body>
     <header>
-        <!-- Navbar do Bootstrap -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <h3 class="navbar-brand">Cifras Grátis</h3>
+            <!--<h3 class="navbar-brand">Cifras Grátis</h3>-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -36,13 +36,82 @@
                     </li>
                     <li class="nav-item">
                         <!-- Botão para abrir o modal de busca -->
-                        <button class="btn btn-success p-1 m-0" id="open-modal-btn">Buscar cifras</button>
+                        <button class="btn btn-outline-primary p-1" id="open-modal-btn" data-modal="search-modal">Buscar
+                            cifras</button>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
 
+    <!-- Modal de Busca Estilizado -->
+    <div id="search-modal" class="search-modal">
+        <span class="btn-close" id="close-modal-btn">&times;</span>
+        <h5>Buscar Música</h5>
+
+        <!-- Campo de Busca -->
+        <input type="text" id="search-input" placeholder="Digite sua busca..." class="form-control mt-3">
+
+        <!-- Dropdowns de Filtro -->
+        <select id="dropdown-estilo" class="form-control mt-3">
+            <option value="">Selecione um estilo</option>
+        </select>
+
+        <select id="dropdown-artista" class="form-control mt-3" disabled>
+            <option value="">Selecione um artista</option>
+        </select>
+
+        <!-- Lista de Arquivos -->
+        <ul id="file-list" class="file-list mt-3"></ul>
+
+        <div class="modal-footer">
+            <!--<button type="button" class="btn btn-secondary" id="close-modal-btn" data-bs-dismiss="modal" aria-label="Close">Fechar</button>-->
+        </div>
+    </div>
+
+    <!-- Modal de Visualização da Música -->
+    <div class="modal fade" id="music-modal" tabindex="-1" aria-labelledby="musicModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark">
+                <div class="modal-header ">
+                    <h5 class="modal-title text-muted" id="music-title">Título da Música</h5>
+                    <button type="button" class="btn-close m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-muted">
+                    <pre id="music-content" class="music-content text-muted"></pre>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="download-link" download class="btn btn-outline-primary btn-block">Baixar Música</a>
+                    <!--<a href="#" type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Fechar</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Fundo escurecido -->
+    <div id="modal-backdrop"></div>
+
+
+    <!-- Modal de visualização de música -->
+    <div id="music-modal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="music-title">Visualizar Música</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <pre id="music-content">Carregando...</pre> <!-- Exibe o conteúdo da música -->
+                </div>
+                <div class="modal-footer">
+                    <a id="download-link" class="btn btn-primary" href="#" download>Baixar</a>
+                    <!-- Botão de download -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Section Hero com Vídeo de Fundo -->
     <section id="hero" class="hero-section text-center text-white p-0">
@@ -120,30 +189,6 @@
 
             </div>
         </section>
-
-       
-    <!-- Modal do Afinador -->
-    <div class="modal fade" id="tunerModal" tabindex="-1" aria-labelledby="tunerModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content bg-dark text-white">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="tunerModalLabel">Afinador de Violão</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="text-center">
-                        <h2 id="note-detected" class="display-4">Nenhuma nota detectada</h2>
-                        <div id="frequency" class="lead">Frequência: 0 Hz</div>
-                        <div id="status" class="alert alert-info mt-3" role="alert">Aguardando o microfone...</div>
-                        <button id="start-btn" class="btn btn-success mt-3">Iniciar Afinador</button>
-                        <button id="stop-btn" class="btn btn-danger mt-3">Parar Afinador</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
         <!-- Seção de Recursos (Blog de Notícias) -->
         <!--
@@ -309,41 +354,30 @@
             </div>
         </section>
             -->
-        <!-- Botão de WhatsApp -->
-        <a href="#" class="whatsapp-button" id="whatsapp-button">
-            <img src="./images/icon/whatsapp.png" alt="">
-        </a>
+            <!-- Botão de WhatsApp -->
+            <a href="#" class="whatsapp-button" id="whatsapp-button">
+                <img src="./images/icon/whatsapp.png" alt="">
+            </a>
 
-        <!-- Modal do WhatsApp -->
-        <div id="whatsapp-modal" class="modal">
-            <div class="modal-content bg-dark">
-                <span class="close text-white">&times;</span>
-                <div class="whatsapp-modal-body">
-                    <h2>Iniciar Conversa</h2>
-                    <p>Deseja iniciar uma conversa conosco no WhatsApp?</p>
-                    <a href="https://wa.me/000000000" class="btn btn-success" target="_blank">Sim, Iniciar
-                        Conversa</a>
-                    <button class="btn btn-danger" id="close-modal">Não, Obrigado</button>
+            <!-- Modal do WhatsApp -->
+            <div id="whatsapp-modal" class="modal">
+                <div class="modal-content bg-dark">
+                    <span class="close text-white">&times;</span>
+                    <div class="whatsapp-modal-body">
+                        <h2>Iniciar Conversa</h2>
+                        <p>Deseja iniciar uma conversa conosco no WhatsApp?</p>
+                        <a href="https://wa.me/000000000" class="btn btn-success" target="_blank">Sim, Iniciar
+                            Conversa</a>
+                        <button class="btn btn-danger" id="close-modal">Não, Obrigado</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-
-        <!-- Botão "Voltar ao Topo" -->
-        <a href="#top" class="scroll-to-top">
-            <img src="./images/icon/botao-de-upload.png" alt="">
-        </a>
+            <!-- Botão "Voltar ao Topo" -->
+            <a href="#top" class="scroll-to-top">
+                <img src="./images/icon/botao-de-upload.png" alt="">
+            </a>
     </main>
-
-    <!-- Modal de Busca -->
-    <div id="search-modal" class="modal">
-        <div class="modal-content bg-dark">
-            <span class="close-btn" data-modal="search-modal">&times;</span>
-            <h2>Buscar Arquivos</h2>
-            <input type="text" id="search-input" placeholder="Buscar...">
-            <ul id="file-list" style="display: none;"></ul> <!-- Inicialmente escondido -->
-        </div>
-    </div>
 
     <!-- Modal de Visualização -->
     <div id="view-modal" class="modal">
@@ -418,7 +452,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <script src="script.js"></script>
-    <script src="afinador.js"></script>
+    <script src="script_search.js"></script>
 </body>
 
 </html>

@@ -1,146 +1,37 @@
-[
-  {
-    "name": "24-horas-no-ar.txt",
-    "url": "files/24-horas-no-ar.txt"
-  },
-  {
-    "name": "a-estrela-so.txt",
-    "url": "files/a-estrela-so.txt"
-  },
-  {
-    "name": "a-ferro-e-fogo.txt",
-    "url": "files/a-ferro-e-fogo.txt"
-  },
-  {
-    "name": "a-forca-da-eucaristia.txt",
-    "url": "files/a-forca-da-eucaristia.txt"
-  },
-  {
-    "name": "a-forca-do-amor.txt",
-    "url": "files/a-forca-do-amor.txt"
-  },
-  {
-    "name": "a-garota-de-ontem.txt",
-    "url": "files/a-garota-de-ontem.txt"
-  },
-  {
-    "name": "a-gente-fica-sem-se-amar.txt",
-    "url": "files/a-gente-fica-sem-se-amar.txt"
-  },
-  {
-    "name": "a-gente-sempre-se-entende.txt",
-    "url": "files/a-gente-sempre-se-entende.txt"
-  },
-  {
-    "name": "a-gente-so-andava.txt",
-    "url": "files/a-gente-so-andava.txt"
-  },
-  {
-    "name": "a-grande-montanha.txt",
-    "url": "files/a-grande-montanha.txt"
-  },
-  {
-    "name": "a-majestade-o-pagode.txt",
-    "url": "files/a-majestade-o-pagode.txt"
-  },
-  {
-    "name": "a-mao-do-tempo(versão 2).txt",
-    "url": "files/a-mao-do-tempo(versão 2).txt"
-  },
-  {
-    "name": "a-mao-do-tempo.txt",
-    "url": "files/a-mao-do-tempo.txt"
-  },
-  {
-    "name": "abre-o-coracao-pra-mim.txt",
-    "url": "files/abre-o-coracao-pra-mim.txt"
-  },
-  {
-    "name": "aceite-meu-coracao.txt",
-    "url": "files/aceite-meu-coracao.txt"
-  },
-  {
-    "name": "acorde-amor.txt",
-    "url": "files/acorde-amor.txt"
-  },
-  {
-    "name": "alma-de-boemio.txt",
-    "url": "files/alma-de-boemio.txt"
-  },
-  {
-    "name": "amar-e-chorar.txt",
-    "url": "files/amar-e-chorar.txt"
-  },
-  {
-    "name": "apenas-uma-cancao-de-amor(versão 3).txt",
-    "url": "files/apenas-uma-cancao-de-amor(versão 3).txt"
-  },
-  {
-    "name": "apenas-uma-cancao-de-amor.txt",
-    "url": "files/apenas-uma-cancao-de-amor.txt"
-  },
-  {
-    "name": "as-dores-do-silencio(versão 2).txt",
-    "url": "files/as-dores-do-silencio(versão 2).txt"
-  },
-  {
-    "name": "as-dores-do-silencio.txt",
-    "url": "files/as-dores-do-silencio.txt"
-  },
-  {
-    "name": "as-horas.txt",
-    "url": "files/as-horas.txt"
-  },
-  {
-    "name": "ate-o-fim(versão 2).txt",
-    "url": "files/ate-o-fim(versão 2).txt"
-  },
-  {
-    "name": "ate-o-fim.txt",
-    "url": "files/ate-o-fim.txt"
-  },
-  {
-    "name": "aurora(versão 2).txt",
-    "url": "files/aurora(versão 2).txt"
-  },
-  {
-    "name": "aurora.txt",
-    "url": "files/aurora.txt"
-  },
-  {
-    "name": "autor-desconhecido.txt",
-    "url": "files/autor-desconhecido.txt"
-  },
-  {
-    "name": "bendito-o-que-vem.txt",
-    "url": "files/bendito-o-que-vem.txt"
-  },
-  {
-    "name": "bendito-seja-deus.txt",
-    "url": "files/bendito-seja-deus.txt"
-  },
-  {
-    "name": "celebrai-a-cristo-celebrai.txt",
-    "url": "files/celebrai-a-cristo-celebrai.txt"
-  },
-  {
-    "name": "celebramos.txt",
-    "url": "files/celebramos.txt"
-  },
-  {
-    "name": "desamarrem-as-sandalias.txt",
-    "url": "files/desamarrem-as-sandalias.txt"
-  },
-  {
-    "name": "desca-como-a-chuva.txt",
-    "url": "files/desca-como-a-chuva.txt"
-  },
-  {
-    "name": "e-missao-de-todos-nos.txt",
-    "url": "files/e-missao-de-todos-nos.txt"
-  },
-  {
-    "name": "em-jesus-cristo-a-nossa-fe.txt",
-    "url": "files/em-jesus-cristo-a-nossa-fe.txt"
+{
+  "estilos": {
+    "pop": {
+      "artist1": [
+        "24-horas-no-ar.txt",
+        "a-estrela-so.txt",
+        "a-ferro-e-fogo.txt",
+        "a-forca-da-eucaristia.txt",
+        "a-forca-do-amor.txt",
+        "a-garota-de-ontem.txt",
+        "a-gente-fica-sem-se-amar.txt",
+        "a-gente-sempre-se-entende.txt",
+        "a-gente-so-andava.txt",
+        "a-grande-montanha.txt",
+        "a-majestade-o-pagode.txt",
+        "a-mao-do-tempo(versão 2).txt",
+        "a-mao-do-tempo.txt"
+      ]
+    },
+    "rock": {
+      "artist1": [
+        "abre-o-coracao-pra-mim.txt",
+        "aceite-meu-coracao.txt",
+        "acorde-amor.txt",
+        "alma-de-boemio.txt",
+        "amar-e-chorar.txt",
+        "apenas-uma-cancao-de-amor(versão 3).txt",
+        "apenas-uma-cancao-de-amor.txt",
+        "as-dores-do-silencio(versão 2).txt",
+        "as-dores-do-silencio.txt",
+        "as-horas.txt",
+        "ate-o-fim(versão 2).txt",
+        "ate-o-fim.txt"
+      ]
+    }
   }
-]
+}

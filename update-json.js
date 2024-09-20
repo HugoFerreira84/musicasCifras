@@ -1,59 +1,60 @@
 const fs = require('fs');
 const path = require('path');
 
-const directoryPath = path.join(__dirname, 'cifras/uploads'); // Caminho para a pasta com os arquivos
+const baseDirectory = path.join(__dirname, 'cifras/uploads'); // Caminho para a pasta com os estilos musicais
 const jsonFilePath = path.join(__dirname, 'files.json'); // Caminho para o arquivo JSON
 
-// Função para atualizar o JSON
-function updateJSON() {
-    // Lê o arquivo JSON existente
-    fs.readFile(jsonFilePath, 'utf8', (err, data) => {
-        if (err) {
-            console.error('Erro ao ler o arquivo JSON: ', err);
-            return;
-        }
+// Função para ler os diretórios de estilos e artistas e gerar a estrutura
+function generateFileStructure() {
+    const fileStructure = {};
 
-        // Faz o parse do JSON existente
-        let existingFiles = [];
-        try {
-            existingFiles = JSON.parse(data);
-        } catch (parseError) {
-            console.error('Erro ao parsear o JSON: ', parseError);
-            return;
-        }
+    // Lê todos os estilos (diretórios dentro de 'uploads')
+    fs.readdirSync(baseDirectory).forEach(estilo => {
+        const estiloPath = path.join(baseDirectory, estilo);
+        
+        // Verifica se é um diretório
+        if (fs.lstatSync(estiloPath).isDirectory()) {
+            fileStructure[estilo] = {}; // Inicializa o objeto do estilo
 
-        // Lê os arquivos do diretório
-        fs.readdir(directoryPath, (err, files) => {
-            if (err) {
-                console.error('Erro ao ler o diretório: ', err);
-                return;
-            }
+            // Lê todos os artistas (diretórios dentro de cada estilo)
+            fs.readdirSync(estiloPath).forEach(artista => {
+                const artistaPath = path.join(estiloPath, artista);
 
-            // Cria um conjunto de nomes de arquivos existentes
-            const existingNames = new Set(existingFiles.map(file => file.name));
+                // Verifica se é um diretório
+                if (fs.lstatSync(artistaPath).isDirectory()) {
+                    fileStructure[estilo][artista] = []; // Inicializa o array de músicas para o artista
 
-            // Percorre os arquivos da pasta
-            files.forEach(file => {
-                if (!existingNames.has(file)) {
-                    // Adiciona novo arquivo ao array
-                    existingFiles.push({
-                        name: file,
-                        url: `files/${file}` // URL relativa para o arquivo
+                    // Lê todos os arquivos de música dentro de cada diretório de artista
+                    fs.readdirSync(artistaPath).forEach(musica => {
+                        const musicaPath = path.join(artistaPath, musica);
+
+                        // Verifica se é um arquivo (não uma pasta)
+                        if (fs.lstatSync(musicaPath).isFile()) {
+                            // Adiciona o nome da música ao array
+                            fileStructure[estilo][artista].push(musica);
+                        }
                     });
                 }
             });
+        }
+    });
 
-            // Escreve o JSON atualizado no arquivo
-            fs.writeFile(jsonFilePath, JSON.stringify(existingFiles, null, 2), (err) => {
-                if (err) {
-                    console.error('Erro ao escrever o arquivo JSON: ', err);
-                    return;
-                }
-                console.log('Arquivo JSON atualizado com sucesso!');
-            });
-        });
+    return fileStructure;
+}
+
+// Função para atualizar o JSON
+function updateJSON() {
+    const fileStructure = generateFileStructure(); // Gera a estrutura de arquivos
+
+    // Escreve o arquivo JSON atualizado
+    fs.writeFile(jsonFilePath, JSON.stringify({ estilos: fileStructure }, null, 2), (err) => {
+        if (err) {
+            console.error('Erro ao escrever o arquivo JSON: ', err);
+            return;
+        }
+        console.log('Arquivo JSON atualizado com sucesso!');
     });
 }
 
-// Executa a função
+// Executa a função para atualizar o JSON
 updateJSON();
