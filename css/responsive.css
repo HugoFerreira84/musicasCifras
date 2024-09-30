@@ -1,0 +1,25 @@
+/* Ensuring elements look good on mobile */
+.hero-section {
+    height: 80vh; /* Ajustado para telas menores */
+}
+.hero-section h1 {
+    font-size: 2.5rem; /* Fonte menor em telas menores */
+}
+.card-3d {
+    margin-bottom: 20px; /* Espaçamento adicional entre cards em dispositivos móveis */
+}
+
+/* Gallery responsiveness */
+@media (max-width: 768px) {
+    .gallery-item img {
+        transform: none; /* Sem rotação em telas pequenas para facilitar o toque */
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+#searchResults .search-result-item {
+    animation: fadeIn 0.5s ease-in;
+}

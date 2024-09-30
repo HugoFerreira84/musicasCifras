@@ -1,0 +1,929 @@
+/* styles.css */
+
+/* Navbar Styling */
+.navbar {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-buttons .btn-3d {
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-3d:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Card 3D Effects */
+.card-3d {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+}
+
+.card-3d:hover {
+    transform: perspective(1000px) rotateY(10deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Gallery Styling */
+.gallery img {
+    width: 100%;
+    transition: transform 0.4s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.1) rotate3d(1, 1, 0, 10deg);
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Gallery Section */
+.gallery-section {
+    position: relative;
+}
+
+.gallery-item {
+    perspective: 1000px;
+    /* For 3D effect */
+}
+
+.gallery-item img {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transform-origin: center;
+}
+
+.gallery-item img:hover {
+    transform: rotateY(15deg) rotateX(15deg) scale(1.05);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Theme Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .navbar {
+    background-color: #333333;
+}
+
+body.dark-mode .card-3d {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+/* Ensuring elements look good on mobile */
+.hero-section {
+    height: 80vh;
+    /* Ajustado para telas menores */
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    /* Fonte menor em telas menores */
+}
+
+.card-3d {
+    margin-bottom: 20px;
+    /* Espaçamento adicional entre cards em dispositivos móveis */
+}
+
+/* Gallery responsiveness */
+@media (max-width: 768px) {
+    .gallery-item img {
+        transform: none;
+        /* Sem rotação em telas pequenas para facilitar o toque */
+    }
+}
+
+/* Redesigned Music Search Section */
+.music-search-section {
+    background: linear-gradient(135deg, #1a1a1a, #111);
+    padding: 50px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.music-search-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    filter: blur(50px);
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: #d3d3d3;
+    line-height: 1.6;
+}
+
+.search-bar {
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+.search-input {
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    outline: none;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-search {
+    border-radius: 50%;
+    margin-left: -50px;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.btn-search:hover {
+    transform: scale(1.1);
+}
+
+/* Updated Styles for Search Results */
+.cifras-container {
+    margin-top: 20px;
+}
+
+.category-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #222;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.category-section h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e83e8c;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+.cifra-item {
+    background-color: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cifra-item h4 {
+    font-size: 1.25rem;
+    color: #f8f9fa;
+    margin-bottom: 15px;
+}
+
+.cifra-item pre {
+    background: #2a2a2a;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.download-btn {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Styles for the View Cifra Section */
+.view-cifra-container {
+    display: none; /* Hidden by default */
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin-top: 20px;
+}
+
+.view-cifra-container h3 {
+    font-size: 2rem;
+    color: #e83e8c;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.view-cifra-container pre {
+    background: #2a2a2a;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: monospace;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.view-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-back, .btn-download {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-back:hover, .btn-download:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    margin: 10% auto; 
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    color: #fff;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+}
+
+.modal-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.modal-content pre {
+    background: #2a2a2a;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 1rem;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.btn-download {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-download:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Updated Harmonic Field Section */
+.harmonic-field-section {
+    background: linear-gradient(135deg, #222, #000);
+    padding: 50px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+.harmonic-field-section::before {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    filter: blur(50px);
+}
+.key-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-select {
+    max-width: 300px;
+    border-radius: 50px;
+    padding: 15px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s;
+}
+.form-select:focus {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    outline: none;
+}
+.btn-generate {
+    margin-top: 20px;
+    border-radius: 50px;
+    padding: 10px 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.btn-generate:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Styling for Generated Chords and Pentatonic Scale */
+.chord-field-results,
+.pentatonic-scale-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+.chord-item,
+.scale-item {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+.chord-item:hover,
+.scale-item:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Styling for Chord Diagrams with Hover Effect */
+.chord-item {
+    position: relative;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.chord-item:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Tooltip for Chord Diagrams */
+.chord-item .chord-diagram {
+    display: none;
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    z-index: 100;
+}
+
+.chord-item:hover .chord-diagram {
+    display: block;
+}
+
+/* Add animation for smooth appearance */
+.chord-item .chord-diagram {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Styling for Pentatonic Scale Diagrams with Hover Effect */
+.scale-item {
+    position: relative;
+    background-color: #28a745; /* Green for the pentatonic scale */
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.scale-item:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+
+/* Tooltip for Scale Diagrams */
+.scale-item .scale-diagram {
+    display: none;
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    z-index: 100;
+}
+
+.scale-item:hover .scale-diagram {
+    display: block;
+}
+
+/* Add animation for smooth appearance */
+.scale-item .scale-diagram {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tutorials Section */
+.tutorials-section {
+    background: linear-gradient(135deg, #111, #000);
+    padding: 50px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.tutorial-card {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+}
+
+.tutorial-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card-body {
+    background-color: #1a1a1a;
+    color: #d3d3d3;
+    border-radius: 0 0 15px 15px;
+    padding: 20px;
+}
+
+.card-body .btn-primary {
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.card-body .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for Generated Chords */
+.chord-field-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.chord-item {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.chord-item:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Contact Section */
+.contact-section {
+    background: linear-gradient(135deg, #1a1a1a, #111);
+    padding: 50px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form .form-control {
+    border-radius: 50px;
+    padding: 15px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    outline: none;
+}
+
+.btn-submit {
+    border-radius: 50px;
+    padding: 10px 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-submit:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Donation Section */
+.donation-section {
+    background: linear-gradient(135deg, #111, #000);
+    padding: 50px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.btn-donate {
+    border-radius: 50px;
+    padding: 10px 30px;
+    margin: 10px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background-color: #a12eff;
+    color: #fff;
+}
+
+.btn-donate:hover {
+    background-color: #cc00ff;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.pix-donation-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+.pix-key {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffc107;
+    margin-bottom: 10px;
+}
+
+.btn-copy {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-copy:hover {
+    background-color: #0056b3;
+}
+
+.copy-feedback {
+    color: #28a745;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+    /* Garantir que ele esteja sobre outros elementos */
+}
+
+.scroll-to-top i {
+    font-size: 1.5rem;
+}
+
+.scroll-to-top:hover {
+    background-color: #0056b3;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Add animation for fade-in and fade-out */
+.scroll-to-top.fade-in {
+    display: flex;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.scroll-to-top.fade-out {
+    animation: fadeOut 0.5s ease-out;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* Footer Section */
+.footer-section {
+    background: linear-gradient(135deg, #1a1a1a, #000);
+    padding: 40px 0;
+    color: #ffffff;
+    position: relative;
+}
+
+.footer-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #f8f9fa;
+}
+
+.footer-about {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #d3d3d3;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #b3b3b3;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+/* Social Icons Styling */
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background: #007bff;
+    color: #fff;
+    text-align: center;
+    margin-right: 10px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Hover com cores oficiais das redes sociais */
+
+/* Facebook Hover */
+.social-icon.facebook:hover {
+    color: #1877F2; /* Cor oficial do Facebook */
+}
+
+/* Instagram Hover */
+.social-icon.instagram:hover {
+    color: #E4405F; /* Cor oficial do Instagram */
+}
+
+/* Twitter Hover */
+.social-icon.twitter:hover {
+    color: #1DA1F2; /* Cor oficial do Twitter */
+}
+
+/* LinkedIn Hover */
+.social-icon.linkedin:hover {
+    color: #0077B5; /* Cor oficial do LinkedIn */
+}
+
+/*Youtube*/
+.social-icon.youtube:hover{
+    color: #c4302b; 
+}
+
+/* Exemplo de regra geral, se houver links sociais comuns sem classes específicas */
+.social-icon:hover {
+    transition: color 0.3s ease;
+}
+
+
+/* Contact Information Styling */
+.footer-contact {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #d3d3d3;
+}
+
+.footer-contact i {
+    margin-right: 10px;
+    color: #007bff;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 30px;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+    color: #b3b3b3;
+    font-size: 0.85rem;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .footer-section {
+        text-align: center;
+    }
+
+    .social-icons {
+        margin-bottom: 20px;
+    }
+}
