@@ -350,7 +350,7 @@ window.addEventListener('click', (event) => {
 });
 
 // Chave PIX a ser copiada
-const pixKey = "123e4567-e89b-12d3-a456-426614174000";
+const pixKey = "musicasecifrasgratis@gmail.com";
 
 // Obtém o botão de doação
 const donateButton = document.getElementById('donateButton');
