@@ -133,7 +133,7 @@ function generateChordField() {
 
         // Add chord diagram image
         const chordDiagram = document.createElement('img');
-        chordDiagram.src = `images/diagrams/${chord.replace('#', 'sharp')}.png`; // Assuming the diagrams are named accordingly
+        chordDiagram.src = `img/diagrams/${chord.replace('#', 'sharp')}.svg`; // Assuming the diagrams are named accordingly
         chordDiagram.alt = `Diagrama do acorde ${chord}`;
         chordDiagram.classList.add('chord-diagram');
 
@@ -144,7 +144,7 @@ function generateChordField() {
     chordFieldResults.appendChild(chordsList);
 
     // Display pentatonic scale with diagrams
-    const scaleList = document.createElement('div');
+    /*const scaleList = document.createElement('div');
     scaleList.classList.add('scale-list', 'd-flex', 'justify-content-center', 'flex-wrap', 'mt-4');
     scale.forEach(note => {
         const scaleItem = document.createElement('div');
@@ -162,7 +162,7 @@ function generateChordField() {
         scaleItem.appendChild(scaleDiagram);
         scaleList.appendChild(scaleItem);
     });
-    pentatonicScaleResults.appendChild(scaleList);
+    pentatonicScaleResults.appendChild(scaleList);*/
 }
 
 // Scroll to Top Button Functionality
@@ -380,3 +380,239 @@ donateButton.addEventListener('click', function(event) {
     // Remove o input temporário
     document.body.removeChild(tempInput);
 });
+
+//Script do gerador de acords
+// Base de dados completa dos acordes de violão
+const ACORDES = {
+    // Acordes Maiores
+    "C": [{ corda: 5, casa: 3 }, { corda: 4, casa: 2 }, { corda: 2, casa: 1 }],
+    "C#": [{ corda: 5, casa: 4 }, { corda: 4, casa: 3 }, { corda: 2, casa: 2 }],
+    "D": [{ corda: 3, casa: 2 }, { corda: 2, casa: 3 }, { corda: 1, casa: 2 }],
+    "D#": [{ corda: 1, casa: 3 }, { corda: 2, casa: 4 }, { corda: 3, casa: 3 }],
+    "E": [{ corda: 5, casa: 2 }, { corda: 4, casa: 2 }, { corda: 3, casa: 1 }],
+    "F": [{ casa: 1, pestana: true }, { corda: 5, casa: 3 }, { corda: 4, casa: 3 }, {corda: 3, casa: 2}],
+    "F#": [{ casa: 2, pestana: true }, { corda: 5, casa: 4 }, { corda: 4, casa: 4 }, {corda: 3, casa: 3}],
+    "G": [{ corda: 6, casa: 3 }, { corda: 5, casa: 2 }, { corda: 1, casa: 3 }],
+    "G#": [{ casa: 4, pestana: true }, { corda: 5, casa: 6 }, { corda: 4, casa: 6 }, {corda: 3, casa: 5}],
+    "A": [{ corda: 4, casa: 2 }, { corda: 3, casa: 2 }, { corda: 2, casa: 2 }],
+    "A#": [{ corda: 5, casa: 1, pestana: true }, { corda: 4, casa: 3 }, { corda: 3, casa: 3 }, {corda: 2, casa: 3}],
+    "B": [{ corda: 5, casa: 2, pestana: true }, { corda: 4, casa: 4 }, { corda: 3, casa: 4 }, {corda: 2, casa: 4}],
+
+    // Acordes Menores
+    "Cm": [{ corda: 5, casa: 3, pestana: true }, {corda: 4, casa: 5 }, {corda: 3, casa: 5}],
+    "C#m": [{ corda: 5, casa: 4, pestana: true }, {corda: 4, casa: 6 }, {corda: 3, casa: 6}, {corda: 2, casa: 5}],
+    "Dm": [{ corda: 1, casa: 1 }, { corda: 3, casa: 2 }, { corda: 2, casa: 3 }],
+    "D#m": [{ casa: 5, pestana: true},{corda: 4, casa: 7 }, {corda: 3, casa: 7}, {corda: 2, casa: 6}],
+    "Em": [{ corda: 5, casa: 2 }, { corda: 4, casa: 2 }],
+    "Fm": [{ casa: 1, pestana: true }, { corda: 5, casa: 3 }, { corda: 4, casa: 3 }],
+    "F#m": [{ casa: 2, pestana: true }, { corda: 5, casa: 4 }, { corda: 4, casa: 4 }],
+    "Gm": [{ casa: 3, pestana: true }, { corda: 5, casa: 5 }, { corda: 4, casa: 5 }],
+    "G#m": [{ casa: 4, pestana: true }, {corda: 5, casa: 6 }, {corda: 4, casa: 6}],
+    "Am": [{ corda: 2, casa: 1 }, { corda: 4, casa: 2 }, { corda: 3, casa: 2 }],
+    "A#m": [{ corda: 5, casa: 5, pestana: true }, {corda: 5, casa: 7 }, {corda: 4, casa: 7}],
+    "Bm": [{ corda: 5, casa: 2, pestana: true }, {corda: 4, casa: 4 }, {corda: 3, casa: 4}, {casa:3, corda: 2}],
+
+    // Acordes com Sétima
+    "C7": [{ corda: 5, casa: 3 }, { corda: 4, casa: 2 }, { corda: 3, casa: 3 }, {corda: 2, casa: 1}],
+    "Cmaj7": [{ corda: 5, casa: 3 }, {corda: 4, casa: 2}, {corda: 2, casa: 0}],
+    "Cm7": [{ corda: 5, casa: 3, pestana: true }, {corda: 4, casa: 5}, {corda: 2, casa: 4}],
+    // ... (Replicar lógica para os demais acordes com sétima, maior e menor)
+
+    // Acordes de Nona, Décima Primeira, e Décima Terceira
+    "C9": [{corda: 5, casa: 3}, {corda: 4, casa: 2}, {corda: 2, casa: 3}, {corda: 3, casa: 3}],
+    "Cm9": [{corda: 5, casa: 3, pestana: true}, {corda: 4, casa: 5}, {corda: 3, casa: 3}, {corda: 2, casa: 4}],
+     // Acordes com Nona (9)
+     "C9": [{corda: 5, casa: 3}, {corda: 4, casa: 2}, {corda: 3, casa: 3}, {corda: 2, casa: 3}],
+     "D9": [{corda: 5, casa: 5}, {corda: 4, casa: 4}, {corda: 3, casa: 5}, {corda: 2, casa: 5}],
+     "G9": [{corda: 6, casa: 3}, {corda: 5, casa: 2}, {corda: 3, casa: 3}, {corda: 2, casa: 3}],
+     
+    // ... (Adicionar exemplos dos acordes restantes com 9, 11, 13)
+
+    // Acordes Aumentados
+    "Caug": [{corda: 5, casa: 3}, {corda: 4, casa: 2}, {corda: 3, casa: 1}],
+    "Gaug": [{corda: 6, casa: 3}, {corda: 5, casa: 3}, {corda: 3, casa: 4}],
+
+    // Acordes Diminutos
+    "Cdim": [{corda: 5, casa: 3}, {corda: 3, casa: 4}, {corda: 2, casa: 4}],
+    "Ddim": [{corda: 4, casa: 1}, {corda: 2, casa: 2}, {corda: 1, casa: 1}],
+    "Cm7b5": [{corda: 5, casa: 3, pestana: true}, {corda: 4, casa: 4}, {corda: 3, casa: 3}],
+    "Edim": [{corda: 5, casa: 7}, {corda: 4, casa: 8}, {corda: 3, casa: 7}],
+    "Bdim": [{corda: 5, casa: 2},{corda: 3, casa: 4},{corda:2, casa: 3},{corda:1, casa: 1}],
+    "Bbdim":[{corda: 5, casa: 1}, {corda: 4, casa: 2}, {corda: 3, casa: 3}, {corda: 2, casa: 2}],
+
+    // Acordes Suspensos
+    "Csus2": [{corda: 5, casa: 3}, {corda: 4, casa: 0}, {corda: 3, casa: 0}, {corda: 2, casa: 1}],
+    "Csus4": [{corda: 5, casa: 3}, {corda: 4, casa: 3}, {corda: 3, casa: 0}, {corda: 2, casa: 1}],
+
+    // Acordes Power Chords (5)
+    "C5": [{corda: 5, casa: 3}, {corda: 4, casa: 5}],
+    "D5": [{corda: 5, casa: 5}, {corda: 4, casa: 7}],
+    "E5": [{corda: 5, casa: 7}, {corda: 4, casa: 9}],
+    "F5": [{corda: 6, casa: 1}, {corda: 5, casa: 3}],
+    "G5": [{corda: 6, casa: 3}, {corda: 5, casa: 5}],
+    "A5": [{corda: 6, casa: 5}, {corda: 5, casa: 7}],
+    "B5": [{corda: 6, casa: 7}, {corda: 5, casa: 9}],
+
+    // Acordes Suspensos (Sus)
+    "Csus2": [{corda: 5, casa: 3}, {corda: 2, casa: 3}, {corda: 1, casa:3}],
+    "Csus4": [{corda: 5, casa: 3}, {corda: 4, casa: 3}, {corda: 2, casa: 1}, {corda: 1, casa: 1}],
+    "Dsus2": [{corda: 3, casa: 1}, {corda: 2, casa: 3}],
+    "Dsus4": [{corda: 2, casa: 3}, {corda: 1, casa: 5}],
+    "Esus2": [{corda: 5, casa: 2}, {corda: 4, casa: 2}, {corda: 3, casa: 4}, {corda:2, casa:5}, {corda:1, casa: 2}],
+    "Esus4": [{corda: 4, casa: 2}, {corda: 3, casa: 2}],
+
+     // Acordes de Sétima Menor com Nona Menor (m7b5)
+     "Cm7b5": [{corda: 5, casa: 4,}, {corda: 3, casa:2}],
+     "Dm7b5": [{corda: 3, casa: 1}, {corda: 2, casa: 1}, {corda: 1, casa: 1}, {corda: 2, casa: 6}],
+     
+     // Acordes de Décima Primeira e Décima Terceira
+     "C11": [{corda: 5, casa: 3}, {corda: 4, casa: 2}, {corda: 3, casa: 3}, {corda: 2, casa: 1}, {corda: 1, casa: 3}],
+     "G13": [{corda: 6, casa: 3}, {corda: 4, casa: 4}]
+};
+
+
+// Sugestões de acordes se o acorde não for encontrado
+function sugerirAcordes(input) {
+    const sugestoesContainer = document.getElementById("sugestoes");
+    sugestoesContainer.innerHTML = '';
+
+    Object.keys(ACORDES).forEach(acorde => {
+        if (acorde.toLowerCase().startsWith(input.toLowerCase())) {
+            const listItem = document.createElement("li");
+            listItem.textContent = acorde;
+            listItem.onclick = () => {
+                document.getElementById("acorde-input").value = acorde;
+                sugestoesContainer.innerHTML = '';
+                gerarAcorde();
+            };
+            sugestoesContainer.appendChild(listItem);
+        }
+    });
+
+    if (sugestoesContainer.innerHTML === '') {
+        sugestoesContainer.innerHTML = '<li>Nenhum acorde encontrado</li>';
+    }
+}
+
+function gerarAcorde() {
+    const acorde = document.getElementById("acorde-input").value;
+    const diagramaContainer = document.getElementById("diagrama-container");
+
+    // Limpar diagrama existente
+    diagramaContainer.innerHTML = '';
+
+    if (!ACORDES[acorde]) {
+        sugerirAcordes(acorde);
+        return;
+    }
+
+    // Criar o SVG para o diagrama do acorde
+    const svgNS = "http://www.w3.org/2000/svg";
+    const width = 200;
+    const height = 300;
+
+    const svg = document.createElementNS(svgNS, "svg");
+    svg.setAttribute("width", width);
+    svg.setAttribute("height", height);
+    svg.setAttribute("viewBox", "-30 -5 200 300");
+
+    // Adicionar título ao SVG
+    const title = document.createElementNS(svgNS, "text");
+    title.setAttribute("x", width / 2);
+    title.setAttribute("y", 15);
+    title.setAttribute("text-anchor", "middle");
+    title.setAttribute("font-size", "16");
+    title.setAttribute("font-weight", "bold");
+    title.textContent = acorde;
+    svg.appendChild(title);
+
+    // Encontrar a casa mínima e máxima do acorde
+    const casas = ACORDES[acorde].map(pos => pos.casa);
+    const casaMin = Math.min(...casas);
+    const casaMax = Math.max(...casas);
+
+    // Desenhar o número da casa (onde o acorde começa)
+    if (casaMin > 1) {
+        const casaText = document.createElementNS(svgNS, "text");
+        casaText.setAttribute("x", -20);
+        casaText.setAttribute("y", 70);
+        casaText.setAttribute("font-size", "12");
+        casaText.textContent = `Casa ${casaMin}`;
+        svg.appendChild(casaText);
+    }
+
+    // Desenhar as cordas (invertidas)
+    for (let i = 0; i < 6; i++) {
+        const x = 20 + (5 - i) * 30; // As cordas vão da sexta (esquerda) para a primeira (direita)
+        const linha = document.createElementNS(svgNS, "line");
+        linha.setAttribute("x1", x);
+        linha.setAttribute("y1", 30);
+        linha.setAttribute("x2", x);
+        linha.setAttribute("y2", 270);
+        linha.setAttribute("stroke", "black");
+        svg.appendChild(linha);
+    }
+
+    // Desenhar os trastes
+    for (let i = 0; i < 5; i++) {
+        const y = 30 + i * 50;
+        const linha = document.createElementNS(svgNS, "line");
+        linha.setAttribute("x1", 20);
+        linha.setAttribute("y1", y);
+        linha.setAttribute("x2", 170);
+        linha.setAttribute("y2", y);
+        linha.setAttribute("stroke", "black");
+
+        svg.appendChild(linha);
+    }
+
+    // Desenhar as posições dos dedos e pestanas
+    const acordeData = ACORDES[acorde];
+    acordeData.forEach(pos => {
+        if (pos.pestana) {
+            // Desenhar pestana
+            const x1 = 20;
+            const x2 = 170;
+            const y = 30 + (pos.casa - casaMin + 1) * 50;
+            const linhaPestana = document.createElementNS(svgNS, "line");
+            linhaPestana.setAttribute("x1", x1);
+            linhaPestana.setAttribute("y1", y - 25);
+            linhaPestana.setAttribute("x2", x2);
+            linhaPestana.setAttribute("y2", y - 25);
+            linhaPestana.setAttribute("stroke", "black");
+            linhaPestana.setAttribute("stroke-width", 8);
+            svg.appendChild(linhaPestana);
+        } else {
+            // Desenhar círculo para as posições dos dedos, ajustando para o centro da casa
+            const x = 20 + (6 - pos.corda) * 30; // Inverter a posição da corda (da sexta para a primeira)
+            const y = 30 + (pos.casa - casaMin + 1) * 50 - 25; // Ajuste para centralizar o ponto na casa
+            const circle = document.createElementNS(svgNS, "circle");
+            circle.setAttribute("cx", x);
+            circle.setAttribute("cy", y);
+            circle.setAttribute("r", 8);
+            circle.setAttribute("fill", "black");
+            svg.appendChild(circle);
+        }
+    });
+
+    // Adicionar o SVG ao container
+    diagramaContainer.appendChild(svg);
+
+    // Ativar o botão de download
+    const downloadButton = document.getElementById("download-button");
+    downloadButton.style.display = 'block';
+    downloadButton.onclick = () => salvarSvg(svg, `${acorde}.svg`);
+}
+
+function salvarSvg(svgElement, filename) {
+    const serializer = new XMLSerializer();
+    const svgString = serializer.serializeToString(svgElement);
+    const blob = new Blob([svgString], { type: "image/svg+xml" });
+    const link = document.createElement("a");
+
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+
+    // Simular o clique para iniciar o download
+    link.click();
+}
